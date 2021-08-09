@@ -4,7 +4,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE="${XDG_CACHE_HOME}/zsh_history"
 
-export GITHUB="git@github.com:odrai95"
+export GITHUB="git@github.com:beckhausen"
 export ADOTDIR=${XDG_CONFIG_HOME}/antigen
 export ORGMODE=${HOME}/docs/org/
 export LESSHISTFILE=/dev/null
