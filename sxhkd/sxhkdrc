@@ -1,0 +1,58 @@
+super + s
+	$TERMINAL spt
+
+super + r ; {h,d,p}
+	$TERMINAL -e ranger $HOME/{.,docs,docs/paperpile}
+
+super + w; {i,n}
+	$TERMINAL -e nvim $ORGMODE/{.,notes.org}
+
+super + n
+	$TERMINAL -e nmtui
+
+super + h
+	$TERMINAL -e htop
+
+super + m
+	pavucontrol
+
+super + e ; {e,d}
+	$TERMINAL -e trans {en:de,de:en}
+
+super + t
+	notify_time.sh
+
+shift + alt + p
+	/usr/bin/passmenu -l 5
+
+shift + alt + n
+	/usr/bin/networkmanager_dmenu
+
+shift + alt + m
+	dmenu_man.sh
+
+shift + alt + x
+	dmenu_exit.sh
+
+super + p
+	dmenu_file_launcher.sh
+
+XF86Audio{Raise,Lower}Volume
+	pamixer --allow-boost {-i,-d} 5 && \
+	notify_volume.sh
+
+super + {Up,Down}
+	pamixer --allow-boost {-i,-d} 5 && \
+	notify_volume.sh
+
+super + {Left,Right}
+	playerctl {previous,next} && \
+	notify_track.sh
+
+super + space
+	playerctl play-pause && \
+	notify_track.sh
+
+XF86AudioMute
+	pamixer --toggle-mute && \
+	notify_volume.sh

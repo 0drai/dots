@@ -1,0 +1,59 @@
+# vim: set ft=zsh :
+
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE="${XDG_CACHE_HOME}/zsh_history"
+
+export GITHUB="git@github.com:odrai95"
+export ADOTDIR=${XDG_CONFIG_HOME}/antigen
+export ORGMODE=${HOME}/docs/org/
+export LESSHISTFILE=/dev/null
+
+[ -x "$(command -v qutebrowser)" ] && export BROWSER=/usr/bin/qutebrowser
+[ -x "$(command -v st)" ] && export TERMINAL=/usr/local/bin/st
+[ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+[ -x "$(command -v ipython)" ] && export IPYTHONDIR=${XDG_CONFIG_HOME}/ipython
+
+if [[ -x "$(command -v nvim)" ]]; then
+	export EDITOR="nvim"
+	export VISUAL="nvim -u NONE"
+	export SUDO_EDITOR="nvim -u NONE"
+fi
+
+if [[ -x "$(command -v fd)" && -x "$(command -v fzf)" ]]; then
+	export FZF_DEFAULT_COMMAND="fd --type file --color=always"
+	export FZF_DEFAULT_OPTS="--ansi"
+	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+
+if [[ -x "$(command -v pass)" ]]; then
+	export PASSWORD_STORE_DIR=${HOME}/.local/share/pass
+	export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+fi
+
+if [[ -x "$(command -v micromamba)" ]]; then
+	export MAMBA_EXE=/usr/bin/micromamba
+	export MAMBA_ROOT_PREFIX=/opt/micromamba
+	export MAMBA_VENV_PATH=${MAMBA_ROOT_PREFIX}/envs
+	path+=(/opt/micromamba/bin/)
+fi
+
+if [[ -x "$(command -v cargo)" ]]; then
+	export CARGO_HOME=/opt/cargo
+	path+=(${CARGO_HOME}/bin/)
+fi
+
+if [[ -x "$(command -v go)" ]]; then
+	export GOPATH=/opt/go
+	path+=(${GOPATH}/bin/)
+fi
+
+if [[ -x "$(command -v yarn)" ]]; then
+	path+=(/opt/yarn/bin/)
+fi
+
+path+=(${HOME}/.local/bin/)
+
+# no duplicated entries
+typeset -U path
+export PATH

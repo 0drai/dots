@@ -1,0 +1,9 @@
+set output-radix 16
+set disassembly-flavor intel
+
+source /usr/share/pwndbg/gdbinit.py
+
+alias C=context
+alias ib=info breakpoints
+
+source ~/.config/gdb/ci.py

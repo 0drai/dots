@@ -1,0 +1,29 @@
+setopt interactive_comments
+
+source ${ZDOTDIR}/zprofile
+source ${ZDOTDIR}/zalias
+source ${ZDOTDIR}/zprofile.private
+
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+source /usr/share/zsh/share/antigen.zsh
+antigen use oh-my-zsh
+antigen bundles <<EOF
+sudo
+wfxr/forgit
+EOF
+antigen apply
+
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+[ -f /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ] &&
+	source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh ] &&
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+[ -f /opt/micromamba/etc/profile.d/mamba.sh ] && source /opt/micromamba/etc/profile.d/mamba.sh
+
+autoload -Uz compinit && compinit

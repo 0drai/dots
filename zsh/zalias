@@ -1,0 +1,39 @@
+# vim: set ft=zsh :
+
+alias \
+	la='ls -hla' \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI"
+
+alias \
+	chown="sudo chown" \
+	picocom="sudo picocom" \
+	surfshark-vpn="sudo surfshark-vpn"
+
+alias \
+	zshrc="${EDITOR} ${ZDOTDIR}/.zshrc" \
+	zprofile="${EDITOR} ${ZDOTDIR}/.zprofile" \
+	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
+	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/" \
+	org="${EDITOR} ${ORGMODE}/"
+
+if [[ -x "$(command -v nvim)" ]]; then
+	alias n="nvim"
+	alias vimdiff="nvim -d"
+	alias gits="nvim -c +Git"
+fi
+
+[[ -x "$(command -v micromamba)" ]] && alias mm="micromamba"
+[[ -x "$(command -v tmux)" ]] && alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+[[ -x "$(command -v yarn)" ]] && alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
+[[ -x "$(command -v gdb)" ]] && alias gdb="gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
+[[ -x "$(command -v spotifyd)" ]] && alias spd="spotifyd --no-daemon --autoplay"
+[[ -x "$(command -v trans)" ]] && alias ten="trans -s de -t en"
+
+[[ -x "$(command -v rclone)" ]] && alias \
+	paperpile="rclone copy drive:Paperpile ${HOME}/docs/papers"
+
+#  if [[ -x "$(command -v vale)" ]]; then
+# alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
+#  fi
