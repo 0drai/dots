@@ -1,0 +1,418 @@
+extends: existence
+message: "'%s' is too wordy"
+ignorecase: true
+level: warning
+tokens:
+  - absolutely
+  - abundance
+  - accede to
+  - accelerate
+  - accentuate
+  - accidentally
+  - accompany
+  - accomplish
+  - accorded
+  - accrue
+  - acquiesce
+  - acquire
+  - additional
+  - additionally
+  - adjacent to
+  - adjustment
+  - admissible
+  - advantageous
+  - adversely impact
+  - advise
+  - aforementioned
+  - aggregate
+  - aircraft
+  - allegedly
+  - alleviate
+  - allocate
+  - all of
+  - all things considered
+  - along the lines of
+  - already existing
+  - alternatively
+  - amazing
+  - ameliorate
+  - angrily
+  - anticipate
+  - a number of
+  - anxiously
+  - apparent
+  - appreciable
+  - approximately
+  - as a matter of fact
+  - as a means of
+  - ascertain
+  - as far as I'm concerned
+  - as of yet
+  - assistance
+  - as to
+  - as yet
+  - attain
+  - at the present time
+  - at this time
+  - attributable to
+  - authorize
+  - awkwardly
+  - badly
+  - barely
+  - beautifully
+  - because of the fact that
+  - belated
+  - benefit from
+  - bestow
+  - blindly
+  - boldly
+  - bravely
+  - brightly
+  - briskly
+  - bristly
+  - bubbly
+  - busily
+  - by means of
+  - by virtue of
+  - by virtue of the fact that
+  - calmly
+  - carefully
+  - carelessly
+  - cautiously
+  - cease
+  - cheerfully
+  - clearly
+  - closely
+  - close proximity
+  - coldly
+  - commence
+  - completely
+  - comply with
+  - concerning
+  - consequently
+  - consolidate
+  - constitutes
+  - correctly
+  - courageously
+  - crinkly
+  - cruelly
+  - crumbly
+  - cuddly
+  - currently
+  - daily
+  - daringly
+  - deadly
+  - definitely
+  - deliberately
+  - demonstrate
+  - depart
+  - designate
+  - discontinue
+  - doubtfully
+  - due to the fact that
+  - dumbly
+  - each and every
+  - eagerly
+  - early
+  - easily
+  - economical
+  - elegantly
+  - eliminate
+  - elucidate
+  - employ
+  - endeavor
+  - enormously
+  - enthusiastically
+  - enumerate
+  - equally
+  - equitable
+  - equivalent
+  - especially
+  - evaluate
+  - eventually
+  - evidenced
+  - exactly
+  - exceedingly
+  - exclusively
+  - expedite
+  - expend
+  - expiration
+  - extremely
+  - facilitate
+  - factual evidence
+  - fairly
+  - faithfully
+  - fatally
+  - feasible
+  - few
+  - fiercely
+  - finalize
+  - finally
+  - first and foremost
+  - fondly
+  - foolishly
+  - for all intents and purposes
+  - forfeit
+  - formulate
+  - for the most part
+  - for the purpose of
+  - fortunately
+  - frankly
+  - frantically
+  - generously
+  - gently
+  - giggly
+  - gladly
+  - gracefully
+  - greedily
+  - happily
+  - hardly
+  - hastily
+  - have a tendency to
+  - healthily
+  - heartily
+  - helpfully
+  - honestly
+  - honest truth
+  - hourly
+  - however
+  - hungrily
+  - hurriedly
+  - if and when
+  - immediately
+  - impacted
+  - impatiently
+  - implement
+  - in accordance with
+  - in addition
+  - inadequately
+  - in all likelihood
+  - in a manner of speaking
+  - in an effort to
+  - in a timely manner
+  - in a very real sense
+  - in between
+  - inception
+  - incumbent upon
+  - indicate
+  - indication
+  - in excess of
+  - ingeniously
+  - initiate
+  - in lieu of
+  - in light of the fact that
+  - in many cases
+  - in my opinion
+  - innocently
+  - in order to
+  - inquisitively
+  - in regard to
+  - in some instances
+  - interestingly
+  - in terms of
+  - in the case of
+  - in the event that
+  - in the final analysis
+  - in the nature of
+  - in the near future
+  - in the process of
+  - irregardless
+  - irritably
+  - is applicable to
+  - is authorized to
+  - is responsible for
+  - it is
+  - it is essential
+  - it seems that
+  - it was
+  - jiggly
+  - joyously
+  - justly
+  - kindly
+  - largely
+  - lately
+  - lazily
+  - likely
+  - literally
+  - lonely
+  - loosely
+  - loudly
+  - luckily
+  - madly
+  - magnitude
+  - many
+  - maximum
+  - mentally
+  - methodology
+  - mildly
+  - minimize
+  - minimum
+  - modify
+  - monitor
+  - monthly
+  - mortally
+  - mostly
+  - multiple
+  - mysteriously
+  - neatly
+  - necessitate
+  - nervously
+  - nevertheless
+  - nightly
+  - noisily
+  - normally
+  - not certain
+  - not many
+  - not often
+  - not unless
+  - not unlike
+  - notwithstanding
+  - null and void
+  - numerous
+  - obediently
+  - objective
+  - obligate
+  - obtain
+  - occasionally
+  - one particular
+  - only
+  - on the contrary
+  - on the other hand
+  - openly
+  - optimum
+  - overall
+  - owing to the fact that
+  - painfully
+  - participate
+  - particularly
+  - particulars
+  - pass away
+  - patiently
+  - perfectly
+  - pertaining to
+  - point in time
+  - politely
+  - poorly
+  - portion
+  - possess
+  - powerfully
+  - preclude
+  - presumably
+  - previously
+  - prioritize
+  - prior to
+  - procure
+  - proficiency
+  - promptly
+  - provided that
+  - punctually
+  - purchase
+  - put simply
+  - quarterly
+  - quickly
+  - quietly
+  - rapidly
+  - rarely
+  - readily apparent
+  - really
+  - recently
+  - recklessly
+  - refer back
+  - regarding
+  - regularly
+  - relatively
+  - relocate
+  - reluctantly
+  - remainder
+  - remarkably
+  - remuneration
+  - repeatedly
+  - requirement
+  - reside
+  - residence
+  - retain
+  - rightfully
+  - roughly
+  - rudely
+  - sadly
+  - safely
+  - satisfy
+  - selfishly
+  - sensibly
+  - seriously
+  - shall
+  - sharply
+  - shortly
+  - should you wish
+  - shyly
+  - significantly
+  - silently
+  - similar to
+  - simply
+  - sleepily
+  - slowly
+  - smartly
+  - smelly
+  - smoothly
+  - softly
+  - solemnly
+  - solicit
+  - span across
+  - sparkly
+  - speedily
+  - stealthily
+  - sternly
+  - strategize
+  - stupidly
+  - subsequent
+  - substantial
+  - substantially
+  - successfully
+  - successfully complete
+  - suddenly
+  - sufficient
+  - surprisingly
+  - suspiciously
+  - swiftly
+  - tenderly
+  - tensely
+  - terminate
+  - the month of
+  - the point I am trying to make
+  - therefore
+  - thoughtfully
+  - tightly
+  - timely
+  - time period
+  - took advantage of
+  - transmit
+  - transpire
+  - truthfully
+  - type of
+  - unexpectedly
+  - unfortunately
+  - until such time as
+  - usually
+  - utilization
+  - utilize
+  - validate
+  - various different
+  - very
+  - victoriously
+  - violently
+  - vivaciously
+  - warmly
+  - waverly
+  - weakly
+  - wearily
+  - weekly
+  - what I mean to say is
+  - whether or not
+  - wildly
+  - wisely
+  - with respect to
+  - with the exception of
+  - witnessed
+  - worldly
+  - wrinkly
+  - yearly
