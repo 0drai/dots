@@ -37,6 +37,8 @@ nvidia
 picom
 yarn
 spotify-tui
+obsidian
+
 ### C
 # Prerequisites
 *.d
@@ -126,3 +128,17 @@ tags
 [._]*.un~
 packer_compiled.lua
 .gdb_history
+
+spell/
+JetBrains
+LanguageTool
+QtProject.conf
+calcurse/
+inkscape/
+ipython/
+latexindent_settings.yml
+radareorg/
+rizin/
+sqlitebrowser/
+xournalpp/
+zathura/

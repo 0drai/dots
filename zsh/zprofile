@@ -1,18 +1,27 @@
 # vim: set ft=zsh :
 
+#  export XDG_CONFIG_HOME=/home/d0pa/.config/
+#  export XDG_CACHE_HOME=/home/d0pa/.cache/
+#  export XDG_DATA_HOME=/home/d0pa/.local/share/
+
+export XDG_CONFIG_HOME="$HOME/.config/"
+export XDG_DATA_HOME="$HOME/.local/share/"
+export XDG_CACHE_HOME="$HOME/.cache/"
+
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE="${XDG_CACHE_HOME}/zsh_history"
 
 export GITHUB="git@github.com:beckhausen"
 export ADOTDIR=${XDG_CONFIG_HOME}/antigen
-export ORGMODE=${HOME}/docs/org/
+export DOCS=${HOME}/docs
+export ORGMODE=${DOCS}/org/
 export LESSHISTFILE=/dev/null
 
-[ -x "$(command -v qutebrowser)" ] && export BROWSER=/usr/bin/qutebrowser
-[ -x "$(command -v st)" ] && export TERMINAL=/usr/local/bin/st
+[ -x "$(command -v qutebrowser)" ] && export BROWSER="/usr/bin/brave"
+[ -x "$(command -v st)" ] && export TERMINAL="/usr/local/bin/st"
 [ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-[ -x "$(command -v ipython)" ] && export IPYTHONDIR=${XDG_CONFIG_HOME}/ipython
+[ -x "$(command -v ipython)" ] && export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 
 if [[ -x "$(command -v nvim)" ]]; then
 	export EDITOR="nvim"
@@ -27,30 +36,48 @@ if [[ -x "$(command -v fd)" && -x "$(command -v fzf)" ]]; then
 fi
 
 if [[ -x "$(command -v pass)" ]]; then
-	export PASSWORD_STORE_DIR=${HOME}/.local/share/pass
+	export PASSWORD_STORE_DIR="${HOME}/.local/share/pass"
 	export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 fi
 
 if [[ -x "$(command -v micromamba)" ]]; then
-	export MAMBA_EXE=/usr/bin/micromamba
-	export MAMBA_ROOT_PREFIX=/opt/micromamba
-	export MAMBA_VENV_PATH=${MAMBA_ROOT_PREFIX}/envs
+	export MAMBA_EXE="/usr/bin/micromamba"
+	export MAMBA_ROOT_PREFIX="/opt/micromamba"
+	export MAMBA_VENV_PATH="${MAMBA_ROOT_PREFIX}/envs"
 	path+=(/opt/micromamba/bin/)
 fi
 
+if [[ -x "$(command -v conda)" ]]; then
+	export CONDA_ROOT_PREFIX="/opt/miniconda3"
+	export CONDA_EXE="${CONDA_ROOT_PREFIX}/bin/conda"
+	export CONDA_VENV_PATH="${CONDA_ROOT_PREFIX}/envs"
+	path+=(/opt/miniconda3/bin/)
+fi
+
+if [[ -x "$(command -v obsidian)" ]]; then
+	export ZK="${DOCS}/zk/"
+fi
+
 if [[ -x "$(command -v cargo)" ]]; then
-	export CARGO_HOME=/opt/cargo
+	export CARGO_HOME="/opt/cargo"
 	path+=(${CARGO_HOME}/bin/)
 fi
 
 if [[ -x "$(command -v go)" ]]; then
-	export GOPATH=/opt/go
+	export GOPATH="/opt/go"
 	path+=(${GOPATH}/bin/)
 fi
 
 if [[ -x "$(command -v yarn)" ]]; then
 	path+=(/opt/yarn/bin/)
 fi
+
+if [[ -x "$(command -v java)" ]]; then
+  #  ayyyyyyyyyyyyyyyyyyyy
+  #  https://bbs.archlinux.org/viewtopic.php?id=159016
+  export _JAVA_AWT_WM_NONREPARENTING=1
+fi
+
 
 path+=(${HOME}/.local/bin/)
 

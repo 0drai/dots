@@ -5,11 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack Nerd Font:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-    "Hack Nerd Font:pixelsize=18:antialias=true:autohint=true",
-    "Material Icons Regular:pixelsize=18",
+    "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true",
+    "Material Icons Regular:pixelsize=16",
 };
 
 /* borderperc: percentage of cell width to use as a border

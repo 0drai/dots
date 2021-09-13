@@ -12,28 +12,35 @@ alias \
 	surfshark-vpn="sudo surfshark-vpn"
 
 alias \
-	zshrc="${EDITOR} ${ZDOTDIR}/.zshrc" \
-	zprofile="${EDITOR} ${ZDOTDIR}/.zprofile" \
+	zshrc="${EDITOR} ${ZDOTDIR}/zshrc" \
+	zprofile="${EDITOR} ${ZDOTDIR}/zprofile" \
+	zalias="${EDITOR} ${ZDOTDIR}/zalias" \
 	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
-	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/" \
-	org="${EDITOR} ${ORGMODE}/"
+	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/config.h" \
+	org="${EDITOR} ${ORGMODE}/notes.org"
 
 if [[ -x "$(command -v nvim)" ]]; then
-	alias n="nvim"
-	alias vimdiff="nvim -d"
-	alias gits="nvim -c +Git"
+	alias \
+		n="nvim" \
+		vimdiff="nvim -d" \
+		gits="nvim -c +Git"
+fi
+
+if [[ -x "$(command -v rclone)" ]]; then
+	alias \
+		paperpile="rclone -v copy drive:Paperpile ${DOCS}/papers" \
+		zk_push="rclone -v copy ${ZK} drive:zk" \
+		zk_pull="rclone -v copy drive:zk ${ZK}"
 fi
 
 [[ -x "$(command -v micromamba)" ]] && alias mm="micromamba"
 [[ -x "$(command -v tmux)" ]] && alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 [[ -x "$(command -v yarn)" ]] && alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 [[ -x "$(command -v gdb)" ]] && alias gdb="gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
+[[ -x "$(command -v rust-gdb)" ]] && alias rust-gdb="rust-gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
 [[ -x "$(command -v spotifyd)" ]] && alias spd="spotifyd --no-daemon --autoplay"
 [[ -x "$(command -v trans)" ]] && alias ten="trans -s de -t en"
 
-[[ -x "$(command -v rclone)" ]] && alias \
-	paperpile="rclone copy drive:Paperpile ${HOME}/docs/papers"
-
 #  if [[ -x "$(command -v vale)" ]]; then
-# alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
+	#  alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
 #  fi
