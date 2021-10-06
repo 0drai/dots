@@ -28,7 +28,7 @@ fi
 
 if [[ -x "$(command -v rclone)" ]]; then
 	alias \
-		paperpile="rclone -v copy drive:Paperpile ${DOCS}/papers" \
+		paperpile="rclone -v copy drive:Paperpile ${PAPERS}" \
 		zk_push="rclone -v copy ${ZK} drive:zk" \
 		zk_pull="rclone -v copy drive:zk ${ZK}"
 fi
@@ -42,5 +42,5 @@ fi
 [[ -x "$(command -v trans)" ]] && alias ten="trans -s de -t en"
 
 #  if [[ -x "$(command -v vale)" ]]; then
-	#  alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
+#  alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
 #  fi

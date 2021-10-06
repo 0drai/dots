@@ -12,6 +12,8 @@ export GITHUB="git@github.com:0drai"
 export ADOTDIR=${XDG_CONFIG_HOME}/antigen
 export DOCS=${HOME}/docs
 export ORGMODE=${DOCS}/org/
+export PAPERS=${DOCS}/papers
+export MASTERBIB=${PAPERS}/main.bib
 export LESSHISTFILE=/dev/null
 
 [ -x "$(command -v qutebrowser)" ] && export BROWSER="/usr/bin/brave"
