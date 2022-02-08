@@ -1,11 +1,11 @@
 super + s
 	$TERMINAL spt
 
-super + r ; {h,d,p}
-	$TERMINAL -e ranger $HOME/{.,docs,docs/paperpile}
+super + r ; {h,d,p,w}
+	$TERMINAL -e ranger $HOME/{.,docs,docs/paperpile,docs/wiki}
 
-super + w; {i,n}
-	$TERMINAL -e nvim $ORGMODE/{.,notes.org}
+super + w; {i,n,s}
+	$TERMINAL -e nvim /tmp/null +{VimwikiIndex,VimwikiMakeDiaryNote,VimwikiScratch}
 
 super + n
 	$TERMINAL -e nmtui
@@ -20,6 +20,9 @@ super + e ; {e,d}
 	$TERMINAL -e trans {en:de,de:en}
 
 super + t
+	$TERMINAL -e taskwarrior-tui
+
+shift + alt + t
 	notify_time.sh
 
 shift + alt + p

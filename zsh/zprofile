@@ -12,6 +12,8 @@ export GITHUB="git@github.com:0drai"
 export ADOTDIR=${XDG_CONFIG_HOME}/antigen
 export DOCS=${HOME}/docs
 export ORGMODE=${DOCS}/org/
+export NEORG=${DOCS}/neorg/
+export WIKI=${DOCS}/wiki/
 export PAPERS=${DOCS}/papers
 export MASTERBIB=${PAPERS}/main.bib
 export LESSHISTFILE=/dev/null
@@ -21,9 +23,18 @@ export LESSHISTFILE=/dev/null
 [ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 [ -x "$(command -v ipython)" ] && export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 
+if [[ -x "$(command -v 7z)" ]]; then
+	export COMPRESS="7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on target.7z source"
+fi
+
+if [[ -x "$(command -v task)" ]]; then
+  export TASKRC="${XDG_CONFIG_HOME}/task/taskrc"
+  export TASKDATA="${XDG_DATA_HOME}/task"
+fi
+
 if [[ -x "$(command -v nvim)" ]]; then
 	export EDITOR="nvim"
-	export VISUAL="nvim -u NONE"
+	export VISUAL="nvim"
 	export SUDO_EDITOR="nvim -u NONE"
 fi
 
@@ -68,6 +79,10 @@ fi
 
 if [[ -x "$(command -v yarn)" ]]; then
 	path+=(/opt/yarn/bin/)
+fi
+
+if [[ -x "$(command -v ruby)" ]]; then
+	path+=(${XDG_DATA_HOME}/gem/ruby/3.0.0/bin/)
 fi
 
 if [[ -x "$(command -v java)" ]]; then

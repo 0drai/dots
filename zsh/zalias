@@ -17,7 +17,9 @@ alias \
 	zalias="${EDITOR} ${ZDOTDIR}/zalias" \
 	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
 	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/config.h" \
-	org="${EDITOR} ${ORGMODE}/notes.org"
+	org="${EDITOR} ${ORGMODE}/notes.org" \
+  wiki="${EDITOR} ${WIKI}/index.md" \
+  thesis="${EDITOR} ${HOME}/proj/thesis/ma/main.tex"
 
 if [[ -x "$(command -v nvim)" ]]; then
 	alias \
@@ -41,6 +43,6 @@ fi
 [[ -x "$(command -v spotifyd)" ]] && alias spd="spotifyd --no-daemon --autoplay"
 [[ -x "$(command -v trans)" ]] && alias ten="trans -s de -t en"
 
-#  if [[ -x "$(command -v vale)" ]]; then
-#  alias vale="vale --config ${XDG_CONFIG_HOME}/vale/vale.ini"
-#  fi
+ if [[ -x "$(command -v vale)" ]]; then
+  alias vale-boiler="cp -r ${XDG_CONFIG_HOME}/vale/vale.ini .vale.ini && cp -r ${XDG_CONFIG_HOME}/vale/styles .styles/ "
+ fi

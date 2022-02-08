@@ -1,6 +1,7 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:beckhausen/init.lua.git
+	branch = main
 [submodule "dwm"]
 	path = dwm
 	url = git@github.com:beckhausen/dwm.git
