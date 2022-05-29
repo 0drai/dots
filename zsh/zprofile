@@ -18,13 +18,13 @@ export PAPERS=${DOCS}/papers
 export MASTERBIB=${PAPERS}/main.bib
 export LESSHISTFILE=/dev/null
 
-[ -x "$(command -v qutebrowser)" ] && export BROWSER="/usr/bin/brave"
+[ -x "$(command -v brave)" ] && export BROWSER="/usr/bin/brave"
 [ -x "$(command -v st)" ] && export TERMINAL="/usr/local/bin/st"
 [ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 [ -x "$(command -v ipython)" ] && export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 
 if [[ -x "$(command -v 7z)" ]]; then
-	export COMPRESS="7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on target.7z source"
+	export COMPRESS="7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on"
 fi
 
 if [[ -x "$(command -v task)" ]]; then
@@ -81,6 +81,10 @@ if [[ -x "$(command -v yarn)" ]]; then
 	path+=(/opt/yarn/bin/)
 fi
 
+# if [[ -x "$(command -v lua)" ]]; then
+#   path+=(/opt/lua-language-server/bin/Linux)
+# fi
+
 if [[ -x "$(command -v ruby)" ]]; then
 	path+=(${XDG_DATA_HOME}/gem/ruby/3.0.0/bin/)
 fi
@@ -90,7 +94,6 @@ if [[ -x "$(command -v java)" ]]; then
   #  https://bbs.archlinux.org/viewtopic.php?id=159016
   export _JAVA_AWT_WM_NONREPARENTING=1
 fi
-
 
 path+=(${HOME}/.local/bin/)
 

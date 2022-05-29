@@ -9,7 +9,7 @@ alias \
 alias \
 	chown="sudo chown" \
 	picocom="sudo picocom" \
-	surfshark-vpn="sudo surfshark-vpn"
+	surfshark="sudo surfshark-vpn"
 
 alias \
 	zshrc="${EDITOR} ${ZDOTDIR}/zshrc" \
@@ -17,22 +17,18 @@ alias \
 	zalias="${EDITOR} ${ZDOTDIR}/zalias" \
 	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
 	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/config.h" \
-	org="${EDITOR} ${ORGMODE}/notes.org" \
-  wiki="${EDITOR} ${WIKI}/index.md" \
-  thesis="${EDITOR} ${HOME}/proj/thesis/ma/main.tex"
+	org="${EDITOR} ${ORGMODE}/notes.org"
 
 if [[ -x "$(command -v nvim)" ]]; then
 	alias \
-		n="nvim" \
-		vimdiff="nvim -d" \
-		gits="nvim -c +Git"
+		n="${EDITOR}" \
+		vimdiff="${EDITOR} -d" \
+		gits="${EDITOR} -c +Git"
 fi
 
 if [[ -x "$(command -v rclone)" ]]; then
 	alias \
-		paperpile="rclone -v copy drive:Paperpile ${PAPERS}" \
-		zk_push="rclone -v copy ${ZK} drive:zk" \
-		zk_pull="rclone -v copy drive:zk ${ZK}"
+		paperpile="rclone -v copy drive:Paperpile ${PAPERS}"
 fi
 
 [[ -x "$(command -v micromamba)" ]] && alias mm="micromamba"
