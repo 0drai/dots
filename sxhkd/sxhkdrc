@@ -1,14 +1,23 @@
+shift + alt + Return
+	$TERMINAL
+
 super + s
-	$TERMINAL spt
+	$TERMINAL -e ncspot
 
-super + r ; {h,d,p,w}
-	$TERMINAL -e ranger $HOME/{.,docs,docs/paperpile,docs/wiki}
+super + r ; {h,d,p,w,l,P}
+	$TERMINAL -e ranger $HOME/{.,docs,docs/papers,docs/wiki,lectures,proj}
 
-super + w; {i,n,s}
-	$TERMINAL -e nvim /tmp/null +{VimwikiIndex,VimwikiMakeDiaryNote,VimwikiScratch}
+super + q
+	$TERMINAL -e nvim $HOME/docs/zk/scratchpad.md
+
+super + t
+  dmenu_todoist.sh
+
+super + o
+  obsidian
 
 super + n
-	$TERMINAL -e nmtui
+	$TERMINAL -e neomutt
 
 super + h
 	$TERMINAL -e htop
@@ -19,14 +28,11 @@ super + m
 super + e ; {e,d}
 	$TERMINAL -e trans {en:de,de:en}
 
-super + t
-	$TERMINAL -e taskwarrior-tui
-
 shift + alt + t
-	notify_time.sh
+	dmenu_tmux.sh
 
 shift + alt + p
-	/usr/bin/passmenu -l 5
+	/usr/bin/passmenu -l 5 -fn "Monospace:size=16"
 
 shift + alt + n
 	/usr/bin/networkmanager_dmenu
@@ -34,11 +40,20 @@ shift + alt + n
 shift + alt + m
 	dmenu_man.sh
 
-shift + alt + x
-	dmenu_exit.sh
+shift + alt + e
+	dmenu_emoji.sh
+
+super + c
+  dmenu_clip.sh
 
 super + p
 	dmenu_file_launcher.sh
+
+super + g
+	dmenu_search.sh
+
+super + a
+  dmenu_arandr.sh
 
 XF86Audio{Raise,Lower}Volume
 	pamixer --allow-boost {-i,-d} 5 && \
@@ -56,6 +71,17 @@ super + space
 	playerctl play-pause && \
 	notify_track.sh
 
+super + Return
+  playerctl -a pause
+
 XF86AudioMute
 	pamixer --toggle-mute && \
 	notify_volume.sh
+
+XF86MonBrightnessUp
+  brightnessctl s 10+ && \
+  notify_brightness.sh
+
+XF86MonBrightnessDown
+  brightnessctl s 10- && \
+  notify_brightness.sh

@@ -1,0 +1,41 @@
+alias \
+	la='ls -hla' \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI"
+
+alias \
+	chown="sudo chown" \
+	picocom="sudo picocom"
+	# surfshark="sudo surfshark-vpn"
+
+alias \
+	zshrc="${EDITOR} ${ZDOTDIR}/zshrc" \
+	zprofile="${EDITOR} ${ZDOTDIR}/profile" \
+	zalias="${EDITOR} ${ZDOTDIR}/alias" \
+	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
+	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/config.h"
+
+alias clip="xclip -sel c"
+
+alias \
+  n="${EDITOR}" \
+  vimdiff="${EDITOR} -d" \
+  nu="${EDITOR} -u NONE" \
+  gits="${EDITOR} -c +Git"
+
+alias \
+  paperpile="rclone -v copy drive:Paperpile ${PAPERS}" \
+  paperpile-up="rclone -v copy ${PAPERS} drive:Paperpile" \
+  pdf-up="rclone -v sync ${PDFS} drive:pdf" \
+  pdf-down="rclone -v sync drive:pdf ${PDFS}"
+
+alias mm="micromamba"
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
+alias gdb="gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
+alias rust-gdb="rust-gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
+alias spd="spotifyd --no-daemon --autoplay"
+alias ten="trans -s de -t en"
+
+alias vale-init="cp -r ${XDG_CONFIG_HOME}/vale/vale.ini .vale.ini && cp -r ${XDG_CONFIG_HOME}/vale/.vale-styles .vale-styles/ "

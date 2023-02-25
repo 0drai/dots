@@ -1,21 +1,19 @@
 #!/bin/sh
 
-xrandr --output DVI-I-0 \
-	--mode 1920x1080 --pos 1920x0 --rotate normal \
-	--output DVI-I-1 --off --output HDMI-0 --primary \
-	--mode 1920x1080 \
-	--pos 0x0 --rotate normal --output DP-0 --off \
-	--output DP-1 --off
-
-nitrogen --restore &
-dunst &
-# picom --experimental-backends &
-nvidia-settings --load-config-only \
-	--config /home/d0pa/.config/nvidia/nvidia-settings-rc &
-nm-applet &
-pasystray &
-dwm_bar_time.sh &
-
-sxhkd &
-
+# nitrogen --restore &
+# dunst &
+# xfce4-power-manager &
+# cbatticon -x notify_battery.sh &
+# nm-applet &
+# pasystray &
+# blueman-applet &
+# blueman-tray &
+# dwm_bar_time.sh &
+# xautolock -time 15 -locker slock &
+# sxhkd &
+# # mailsync -q &
+# . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+# eval $(ssh-agent)
+# greenclip daemon &
+slstatus &
 exec dwm

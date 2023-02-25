@@ -1,44 +1,24 @@
 setopt interactive_comments
+autoload -Uz compinit && compinit
 
-source ${ZDOTDIR}/zprofile
-source ${ZDOTDIR}/zalias
-source ${ZDOTDIR}/zprofile.private
+source ${ZDOTDIR}/profile
+source ${ZDOTDIR}/alias
+source ${ZDOTDIR}/profile.private
 
-function git_branch() {
-  local ref=$(git symbolic-ref --short HEAD 2>/dev/null)
-  if [ -n "${ref}" ]; then
-    if [ -n "$(git status --porcelain)" ]; then
-      local gitstatuscolor='%F{red}'
-    else
-      local gitstatuscolor='%F{green}'
-    fi
-    echo "${gitstatuscolor} (${ref})"
-  else
-    echo ""
-  fi
-}
-
-autoload -U colors && colors
-PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]$(git_branch)%{$reset_color%}$%b '
-
-source /usr/share/zsh/share/antigen.zsh
+# curl -L https://github.com/zsh-users/antigen/releases/download/v2.2.3/antigen.zsh -o antigen.zsh
+source $ZDOTDIR/antigen.zsh
 antigen use oh-my-zsh
+antigen theme minimal
 antigen bundles <<EOF
 sudo
 wfxr/forgit
+zoxide
+zdharma-continuum/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
 EOF
 antigen apply
 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
-[ -f /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ] &&
-  source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh ] &&
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-
-[ -f /opt/micromamba/etc/profile.d/mamba.sh ] && source /opt/micromamba/etc/profile.d/mamba.sh
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-autoload -Uz compinit && compinit
+# vi: set ft=bash :
