@@ -1,0 +1,21 @@
+FROM registry.opensuse.org/opensuse/toolbox
+
+RUN zypper -n in \
+  freetype2-devel \
+  libX11-devel \
+  libXft-devel \
+  libXinerama-devel \
+  imlib2-devel \
+  libXrandr-devel \
+  dmenu \
+  make \
+  gcc
+
+# FROM archlinux:base-devel
+#
+# RUN pacman -Syy --noconfirm --needed \
+#   freetype2 \
+#   libx11 \
+#   libxft \
+#   libxinerama \
+#   imlib2
