@@ -1,4 +1,3 @@
 #!/bin/sh
 
-slstatus &
 exec dwm

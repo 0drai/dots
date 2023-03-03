@@ -1,41 +1,6 @@
-alacritty
-antigen
-autostart
-BraveSoftware
-Code
-code-oss
-coreapps
-cubocore
-dconf
-Electron
-google-chrome
-gtk*
-menus
-mpv
-neofetch
-nitrogen
-okular*
-pavucontrol.ini
-pipewire
-pulse
-qutebrowser
-rclone
-skypeforlinux
-systemd
-transmission
-wget
-wireshark
-xfce4
-htop
-dunst
-Slack
-Thunar
-mimeapps.list
-nvidia
-picom
-yarn
-spotify-tui
-obsidian
+suckless/dwm/dwm
+suckless/slock/slock
+suckless/slstatus/slstatus
 
 ### C
 # Prerequisites
@@ -102,41 +67,3 @@ zsdoc/data
 # MichaelAquilina/zsh-autoswitch-virtualenv plugin's files
 # (for Zsh plugins using Python)
 .venv
-# Zunit tests' output
-/tests/_output/*
-!/tests/_output/.gitkeep
-zprofile.private
-### Vim
-# Swap
-[._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-# Session
-Session.vim
-Sessionx.vim
-# Temporary
-.netrwhist
-*~
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
-packer_compiled.lua
-.gdb_history
-
-spell/
-JetBrains
-LanguageTool
-QtProject.conf
-calcurse/
-inkscape/
-ipython/
-latexindent_settings.yml
-radareorg/
-rizin/
-sqlitebrowser/
-xournalpp/
-zathura/

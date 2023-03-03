@@ -158,6 +158,7 @@ static const char *const autostart[] = {
   "greenclip", "daemon", NULL,
   "cbatticon", "0", NULL,
   "slstatus", NULL,
+  "thunar", "--daemon", NULL,
 	NULL /* terminate */
 };
 

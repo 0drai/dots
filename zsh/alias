@@ -14,7 +14,7 @@ alias \
 	zprofile="${EDITOR} ${ZDOTDIR}/profile" \
 	zalias="${EDITOR} ${ZDOTDIR}/alias" \
 	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
-	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/dwm/config.h"
+	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/suckless/dwm/config.h"
 
 alias clip="xclip -sel c"
 
@@ -37,5 +37,3 @@ alias gdb="gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
 alias rust-gdb="rust-gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
 alias spd="spotifyd --no-daemon --autoplay"
 alias ten="trans -s de -t en"
-
-alias vale-init="cp -r ${XDG_CONFIG_HOME}/vale/vale.ini .vale.ini && cp -r ${XDG_CONFIG_HOME}/vale/.vale-styles .vale-styles/ "
