@@ -67,3 +67,5 @@ zsdoc/data
 # MichaelAquilina/zsh-autoswitch-virtualenv plugin's files
 # (for Zsh plugins using Python)
 .venv
+
+profile.private
