@@ -9,6 +9,7 @@ RUN zypper -n in \
   libXrandr-devel \
   dmenu \
   make \
+  alacritty \
   gcc
 
 # FROM archlinux:base-devel
