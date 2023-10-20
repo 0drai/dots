@@ -7,12 +7,12 @@
  */
 // static char *font = "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true";
 
-static char *font = "SauceCodePro Nerd Font:pixelsize=22:style=Regular";
+static char *font = "monospace=22:style=Regular";
 
 /* Spare fonts */
-static char *font2[] = {
-    "Noto Color Emoji:pixelsize=16:antialias=true:autohint=true",
-};
+// static char *font2[] = {
+//     "monospace=16:antialias=true:autohint=true",
+// };
 
 /* borderperc: percentage of cell width to use as a border
  *             0 = no border, 100 = border width is same as cell width */

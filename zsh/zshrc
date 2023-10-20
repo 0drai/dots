@@ -3,7 +3,6 @@ autoload -Uz compinit && compinit
 
 source ${ZDOTDIR}/profile
 source ${ZDOTDIR}/alias
-source ${ZDOTDIR}/profile.private
 
 # curl -L https://github.com/zsh-users/antigen/releases/download/v2.2.3/antigen.zsh -o antigen.zsh
 if [[ -a ~/.config/zsh/antigen.zsh ]]; then
@@ -11,16 +10,15 @@ source $ZDOTDIR/antigen.zsh
 antigen use oh-my-zsh
 antigen bundles <<EOF
 sudo
+fzf
 wfxr/forgit
 zdharma-continuum/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
 EOF
-antigen theme candy-kingdom
+antigen theme gentoo
 antigen apply
 fi
 
 [ -x "$(command -v zoxide)" ] && eval "$(zoxide init zsh)"
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-
-# vi: set ft=bash :

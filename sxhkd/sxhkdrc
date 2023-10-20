@@ -1,20 +1,20 @@
-shift + alt + Return
-	$TERMINAL
-
 super + s
 	$TERMINAL -e ncspot
 
-super + r ; {h,d,p,w,l,P}
-	$TERMINAL -e ranger $HOME/{.,docs,docs/papers,docs/wiki,lectures,proj}
+alt + o
+	xfce4-appfinder
+
+super + r ; {h,d,p,w,l,P,t}
+	$TERMINAL -e ranger $HOME/{.,docs,docs/papers,docs/wiki,lectures,proj,/tmp}
+
+super + j
+	$TERMINAL -e nvim $HOME/docs/zk/main/journal/2023.md
 
 super + q
-	$TERMINAL -e nvim $HOME/docs/zk/scratchpad.md
+	$TERMINAL -e nvim $HOME/docs/zk/main/scratchpad.md
 
-super + t
-  dmenu_todoist.sh
-
-super + o
-  obsidian
+super + Q
+	$TERMINAL -e nvim $(mktemp --suffix=.md)
 
 super + n
 	$TERMINAL -e neomutt
@@ -31,11 +31,17 @@ super + e ; {e,d}
 shift + alt + t
 	dmenu_tmux.sh
 
+shift + alt + d
+	dmenu_box.sh
+
 shift + alt + p
-	/usr/bin/passmenu -l 5 -fn "Monospace:size=16"
+	env SHELL=bash passmenu -l 5 -fn "Monospace:size=16"
 
 shift + alt + n
-	/usr/bin/networkmanager_dmenu
+	$TERMINAL -e /usr/bin/nmtui
+
+shift + alt + w
+  echo -n "$(pass wiwinf)$(pass otp wiwinf-token)" | xclip -selection clipboard && notify-send "wiwinf" "password copied to clipboard"
 
 shift + alt + m
 	dmenu_man.sh
@@ -43,10 +49,16 @@ shift + alt + m
 shift + alt + e
 	dmenu_emoji.sh
 
+shift + alt + x
+	dmenu_exit.sh
+
 super + c
   dmenu_clip.sh
 
 super + p
+	dmenu_paper.sh
+
+super + P
 	dmenu_file_launcher.sh
 
 super + g
@@ -55,33 +67,16 @@ super + g
 super + a
   dmenu_arandr.sh
 
-XF86Audio{Raise,Lower}Volume
-	pamixer --allow-boost {-i,-d} 5 && \
-	notify_volume.sh
-
-super + {Up,Down}
-	pamixer --allow-boost {-i,-d} 5 && \
-	notify_volume.sh
-
 super + {Left,Right}
 	playerctl {previous,next} && \
 	notify_track.sh
 
 super + space
-	playerctl play-pause && \
+	playerctl -a play-pause && \
 	notify_track.sh
 
-super + Return
-  playerctl -a pause
-
 XF86AudioMute
-	pamixer --toggle-mute && \
-	notify_volume.sh
+	pamixer --sink $(pamixer --list-sinks | grep "Running" | cut -d' ' -f1) --toggle-mute
 
-XF86MonBrightnessUp
-  brightnessctl s 10+ && \
-  notify_brightness.sh
-
-XF86MonBrightnessDown
-  brightnessctl s 10- && \
-  notify_brightness.sh
+super + {Up,Down}
+	pamixer --allow-boost --sink $(pamixer --list-sinks | grep "Running" | cut -d' ' -f1) {-i,-d} 5

@@ -1,9 +1,11 @@
 set output-radix 16
 set disassembly-flavor intel
+set style enabled off
 
-source /usr/share/pwndbg/gdbinit.py
+source /opt/pwndbg/gdbinit.py
+set syntax-highlight off
 
-# alias C=context
+alias C=context
 # alias ib=info breakpoints
 # alias stack=x/32xw $sp
 
@@ -13,4 +15,4 @@ source /usr/share/pwndbg/gdbinit.py
 #      echo \n
 # end
 
-source ~/.config/gdb/ci.py
+# source ~/.config/gdb/ci.py

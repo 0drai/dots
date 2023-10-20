@@ -1,12 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx       = 10;   /* border pixel of windows */
+static const unsigned int borderpx       = 6;   /* border pixel of windows */
 static const unsigned int snap           = 10;  /* snap pixel */
 static const unsigned int gappih         = 2;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 2;  /* vert inner gap between windows */
 static const unsigned int gappoh         = 2;  /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov         = 2;  /* vert outer gap between windows and screen edge */
+static const int focusonwheel            = 0;
 static const int smartgaps_fact          = 0;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
@@ -145,24 +146,26 @@ static char *colors[][ColCount] = {
 };
 
 static const char *const autostart[] = {
-	"alacritty", NULL,
-  "nitrogen","--restore", NULL,
-  "dunst", NULL,
-  "xfce4-power-manager", NULL,
-  "nm-applet", NULL,
-  "pasystray", NULL,
-  "blueman-applet", NULL,
-  "blueman-tray", NULL,
-  "xautolock", "-time 15", "-locker slock", NULL,
+  "gnome-keyring-daemon", "--start", "--components=ssh", NULL,
+  "gnome-keyring-daemon", "--start", "--components=secrets", NULL,
+  "gnome-keyring-daemon", "--start", "--components=pkcs11", NULL,
+  "/usr/libexec/polkit-gnome-authentication-agent-1", NULL,
   "sxhkd", NULL,
+  "dunst", NULL,
+  "nm-applet", "--indicator", NULL,
+  "pasystray", "--notify=all", "-g", NULL,
+  // "blueman-applet", NULL,
+  // "blueman-tray", NULL,
+  // "xautolock", "-locker", "slock", NULL,
+  "udiskie", "-t", NULL,
   "greenclip", "daemon", NULL,
-  "cbatticon", "0", NULL,
   "slstatus", NULL,
+  "xfce4-power-manager", NULL,
+  "unclutter", "-idle", "10", NULL,
   "thunar", "--daemon", NULL,
+	"alacritty", "-e", "distrobox", "enter", "dev", NULL,
 	NULL /* terminate */
 };
-
-// . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 /* Tags
  * In a traditional dwm the number of tags in use can be changed simply by changing the number
@@ -192,9 +195,9 @@ static const char *const autostart[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
-	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
+	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6" },
+	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F" },
+	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>" },
 };
 
 
@@ -334,7 +337,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
 	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
 	{ MODKEY|ShiftMask,             XK_q,          killclient,             {0} },
-	{ MODKEY|ShiftMask,             XK_r,          self_restart,           {0} },
+	// { MODKEY|ShiftMask,             XK_r,          self_restart,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,          quit,                   {0} },
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
@@ -388,6 +391,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,              Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,              Button3,        toggletag,      {0} },
 };
-
-
-

@@ -10,19 +10,19 @@ alias \
 	# surfshark="sudo surfshark-vpn"
 
 alias \
-	zshrc="${EDITOR} ${ZDOTDIR}/zshrc" \
-	zprofile="${EDITOR} ${ZDOTDIR}/profile" \
-	zalias="${EDITOR} ${ZDOTDIR}/alias" \
-	vimrc="${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
-	dwmrc="${EDITOR} ${XDG_CONFIG_HOME}/suckless/dwm/config.h"
+  n="${DEV_EDITOR}" \
+	zshrc="${DEV_EDITOR} ${ZDOTDIR}/zshrc" \
+	zprofile="${DEV_EDITOR} ${ZDOTDIR}/profile" \
+	zalias="${DEV_EDITOR} ${ZDOTDIR}/alias" \
+	vimrc="${DEV_EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua" \
+	dwmrc="${DEV_EDITOR} ${XDG_CONFIG_HOME}/suckless/dwm/config.h"
 
 alias clip="xclip -sel c"
 
 alias \
-  n="${EDITOR}" \
   vimdiff="${EDITOR} -d" \
   nu="${EDITOR} -u NONE" \
-  gits="${EDITOR} -c +Git"
+  gits="nvim -c +Git"
 
 alias \
   paperpile="rclone -v copy drive:Paperpile ${PAPERS}" \
@@ -31,9 +31,15 @@ alias \
   pdf-down="rclone -v sync drive:pdf ${PDFS}"
 
 alias mm="micromamba"
+alias zy="sudo zypper"
+alias di="distrobox"
+alias dev="distrobox enter dev"
+alias nw="distrobox enter writing -- nvim "
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 alias gdb="gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
 alias rust-gdb="rust-gdb -x ${XDG_CONFIG_HOME}/gdb/gdbinit"
 alias spd="spotifyd --no-daemon --autoplay"
 alias ten="trans -s de -t en"
+
+# alias emcc="podman run --rm -v $(pwd):/src -u $(id -u):$(id -g) emscripten/emsdk emcc"

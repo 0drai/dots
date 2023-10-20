@@ -1,9 +1,12 @@
 # vim: set ft=zsh :
 
+export DESKTOP_SESSION=xfce
+export XDG_CURRENT_DESKTOP=XFCE
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DOCUMENTS_DIR="${HOME}/docs"
+export XDG_DOWNLOAD_DIR="${HOME}/dl"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export XDG_DESKTOP_DIR="$HOME"
 export XDG_VIDEOS_DIR="$HOME"
@@ -19,17 +22,18 @@ export ADOTDIR="${XDG_CONFIG_HOME}/antigen"
 export DOCS="$XDG_DOCUMENTS_DIR"
 export ORGMODE="${DOCS}/org/"
 export NEORG="${DOCS}/neorg/"
+export ZK="${DOCS}/zk/main"
 export WIKI="${DOCS}/wiki/"
 export PAPERS="${DOCS}/papers"
 export PDFS="${DOCS}/pdfs"
 export MASTERBIB="${PAPERS}/paperpile.bib"
 export LESSHISTFILE="/dev/null"
 export TMPDIR="/tmp/"
+export DBX_CONTAINER_HOME_PREFIX="${HOME}/dbx"
 
 [ -x "$(command -v qutebrowser)" ] && export BROWSER="/usr/bin/qutebrowser"
-# [ -x "$(command -v st)" ] && export TERMINAL="/usr/local/bin/st"
 [ -x "$(command -v alacritty)" ] && export TERMINAL="/usr/bin/alacritty"
-[ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# [ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 [ -x "$(command -v ipython)" ] && export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 
 if [[ -x "$(command -v 7z)" ]]; then
@@ -42,9 +46,13 @@ if [[ -x "$(command -v task)" ]]; then
 fi
 
 if [[ -x "$(command -v nvim)" ]]; then
-	export EDITOR="nvim"
-	export VISUAL="nvim"
-	export SUDO_EDITOR="nvim -u NONE"
+	export EDITOR="vim"
+	export VISUAL="vim"
+	export SUDO_EDITOR="vim"
+fi
+
+if [[ -x "$(command -v distrobox)" ]]; then
+	export DEV_EDITOR="distrobox enter dev -- nvim"
 fi
 
 if [[ -x "$(command -v fd)" && -x "$(command -v fzf)" ]]; then
@@ -67,10 +75,6 @@ if [[ -x "$(command -v gpg)" ]]; then
 fi
 
 if [[ -x "$(command -v micromamba)" ]]; then
-	export MAMBA_VENV_PATH="${MAMBA_ROOT_PREFIX}/envs"
-	export MAMBARC="${XDG_CONFIG_HOME}/mambarc"
-	export MAMBA_EXE="/usr/bin/micromamba"
-	export MAMBA_ROOT_PREFIX="/home/d0pa/.local/share/micromamba"
 	path+=("$MAMBA_ROOT_PREFIX"/bin)
 fi
 
@@ -81,9 +85,21 @@ if [[ -x "$(command -v conda)" ]]; then
 	path+=(/opt/miniconda3/bin/)
 fi
 
-if [[ -x "$(command -v obsidian)" ]]; then
-	export ZK="${DOCS}/zk/"
+export MAMBA_VENV_PATH="${MAMBA_ROOT_PREFIX}/envs"
+export MAMBARC="${XDG_CONFIG_HOME}/mambarc"
+export MAMBA_EXE="${HOME}/.local/bin/micromamba"
+export MAMBA_ROOT_PREFIX="${XDG_DATA_HOME}/micromamba"
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/d0pa/.local/share/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/home/d0pa/.local/share/micromamba/etc/profile.d/micromamba.sh"
+    else
+        export  PATH="/home/d0pa/.local/share/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+    fi
 fi
+unset __mamba_setup
 
 # unset CARGO_HOME
 if [[ -x "$(command -v cargo)" ]]; then
@@ -100,22 +116,11 @@ if [[ -x "$(command -v yarn)" ]]; then
 	path+=(/opt/yarn/bin/)
 fi
 
-# if [[ -x "$(command -v lua)" ]]; then
-#   path+=(/opt/lua-language-server/bin/Linux)
-# fi
-
-# if [[ -x "$(command -v ruby)" ]]; then
-# 	path+=(${XDG_DATA_HOME}/gem/ruby/3.0.0/bin/)
-# fi
-
-# if [[ -x "$(command -v java)" ]]; then
-	#  ayyyyyyyyyyyyyyyyyyyy
-	#  https://bbs.archlinux.org/viewtopic.php?id=159016
-	# export _JAVA_AWT_WM_NONREPARENTING=1
-# fi
+#  https://bbs.archlinux.org/viewtopic.php?id=159016
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GHIDRA_INSTALL_DIR=~/.local/share/ghidra
 
 path+=("$HOME"/.local/bin/)
-path+=("$HOME"/.local/share/JetBrains/Toolbox/scripts/)
 
 # no duplicated entries
 # typeset -U path
