@@ -1,5 +1,6 @@
 colorscheme sorbet
 set encoding=utf-8
+set viminfo=""
 set number
 set relativenumber
 set laststatus=2

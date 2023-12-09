@@ -3,6 +3,7 @@ autoload -Uz compinit && compinit
 
 source ${ZDOTDIR}/profile
 source ${ZDOTDIR}/alias
+source ${ZDOTDIR}/secrets
 
 # curl -L https://github.com/zsh-users/antigen/releases/download/v2.2.3/antigen.zsh -o antigen.zsh
 if [[ -a ~/.config/zsh/antigen.zsh ]]; then

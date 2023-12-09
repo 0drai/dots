@@ -35,7 +35,7 @@
   dt = "! args=$@; shift $#; nvim -c \"DiffviewOpen $args\""
 
 [user]
-	name = Oussama
+	name = Oussama Draissi
 	email = oussama.draissi@uni-due.de
 [filter "lfs"]
 	clean = git-lfs clean -- %f

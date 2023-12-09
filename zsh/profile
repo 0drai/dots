@@ -29,12 +29,12 @@ export PDFS="${DOCS}/pdfs"
 export MASTERBIB="${PAPERS}/paperpile.bib"
 export LESSHISTFILE="/dev/null"
 export TMPDIR="/tmp/"
-export DBX_CONTAINER_HOME_PREFIX="${HOME}/dbx"
+export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
+# export DBX_CONTAINER_HOME_PREFIX="${HOME}/dbx"
 
 [ -x "$(command -v qutebrowser)" ] && export BROWSER="/usr/bin/qutebrowser"
 [ -x "$(command -v alacritty)" ] && export TERMINAL="/usr/bin/alacritty"
 # [ -x "$(command -v bat)" ] && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-[ -x "$(command -v ipython)" ] && export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 
 if [[ -x "$(command -v 7z)" ]]; then
 	export COMPRESS="7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on"
@@ -118,7 +118,7 @@ fi
 
 #  https://bbs.archlinux.org/viewtopic.php?id=159016
 export _JAVA_AWT_WM_NONREPARENTING=1
-export GHIDRA_INSTALL_DIR=~/.local/share/ghidra
+export GHIDRA_INSTALL_DIR="$HOME"/.local/share/ghidra
 
 path+=("$HOME"/.local/bin/)
 

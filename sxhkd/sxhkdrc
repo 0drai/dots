@@ -1,6 +1,11 @@
 super + s
 	$TERMINAL -e ncspot
 
+super + S
+    tmux \
+    new-session  'spt' \; \
+    split-window 'spotifyd --no-daemon' \;
+
 alt + o
 	xfce4-appfinder
 
@@ -67,8 +72,12 @@ super + g
 super + a
   dmenu_arandr.sh
 
+# super + {Left,Right}
+#	playerctl {previous,next} && \
+#	notify_track.sh
+
 super + {Left,Right}
-	playerctl {previous,next} && \
+	spt pb {-p,-n} && \
 	notify_track.sh
 
 super + space

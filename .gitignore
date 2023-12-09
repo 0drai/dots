@@ -1,6 +1,8 @@
 suckless/dwm/dwm
 suckless/slock/slock
 suckless/slstatus/slstatus
+*secrets
+*null-ls*
 
 ### C
 # Prerequisites
